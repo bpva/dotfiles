@@ -4,7 +4,13 @@ body {
   opacity: 0.85;
 }
 
-.monaco-editor, .monaco-editor-background {
-  background: #1e1e1e !important;
+
+.monaco-editor,
+.monaco-editor .margin,
+.monaco-editor .monaco-editor-background,
+.monaco-workbench .part.editor > .content .monaco-editor .monaco-editor-background {
+  background-color: #1e1e1e !important;
+  background: none !important;
+  background-image: none !important;
   opacity: 1 !important;
 }
