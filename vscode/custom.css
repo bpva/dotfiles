@@ -1,18 +1,56 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  background: none !important;
-  position: relative !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: none !important;
+    position: relative !important;
 }
 
-/* Minimal test: Just one pseudo-element with the image */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://steamuserimages-a.akamaihd.net/ugc/27351263238962049/8C601E863E10C7042AFE2BCE2EE30BA84B12A8DC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')
-              no-repeat center center fixed !important;
-  background-size: cover !important;
-  z-index: -1; /* behind everything */
-  pointer-events: none;
+/* Use a placeholder image (1920x1080 gray) for testing */
+body {
+    background: url('https://via.placeholder.com/1920x1080/AAAAAA/FFFFFF?text=Background+Image') 
+        no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+/* Semi-transparent overlay on top of everything */
+html {
+    position: relative;
+    z-index: 0;
+}
+
+html::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3) !important; /* 30% opacity overlay */
+    pointer-events: none;
+    z-index: 1; /* Overlay sits above base content */
+}
+
+/* Make intermediate containers transparent */
+.file-icons-enabled.enable-motion.monaco-workbench,
+.monaco-grid-view,
+.monaco-grid-branch-node,
+.monaco-split-view2,
+.split-view-container,
+.split-view-view,
+.content,
+.editor-container {
+    background: transparent !important;
+    position: relative;
+    z-index: auto !important;
+}
+
+/* Editor area - start with these properties and adjust as needed */
+.monaco-editor,
+.monaco-editor-background,
+.editor-instance,
+.monaco-scrollable-element {
+    background-color: #1e1e1e !important;
+    background-image: none !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 2 !important; /* Try raising this if the editor is still dimmed */
 }
