@@ -12,4 +12,5 @@ body {
 
 .monaco-workbench .part.editor > .content {
   background: none !important;
+  background-color: inherit !important;
 }
