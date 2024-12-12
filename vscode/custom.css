@@ -1,56 +1,18 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: none !important;
-    position: relative !important;
+  margin: 0;
+  padding: 0;
+  background: none !important;
+  position: relative !important;
 }
 
-/* Base background image on body, fully opaque */
-body {
-    background: url('https://steamuserimages-a.akamaihd.net/ugc/27351263238962049/8C601E863E10C7042AFE2BCE2EE30BA84B12A8DC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')
-        no-repeat center center fixed !important;
-    background-size: cover !important;
-}
-
-/* Semi-transparent overlay above body background, dimming everything underneath */
-html {
-    position: relative;
-    z-index: 0;
-}
-
-html::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.15) !important; /* 15% opacity overlay */
-    pointer-events: none;
-    z-index: 1; /* Above the base level */
-}
-
-/* Ensure all intermediate containers are transparent and don't interfere with layering */
-.file-icons-enabled.enable-motion.monaco-workbench,
-.monaco-grid-view,
-.monaco-grid-branch-node,
-.monaco-split-view2,
-.split-view-container,
-.split-view-view,
-.content,
-.editor-container {
-    background: transparent !important;
-    position: relative;
-    z-index: auto !important;
-}
-
-/* Place the editor above the overlay, fully opaque */
-.monaco-editor,
-.monaco-editor-background,
-.editor-instance,
-.monaco-scrollable-element {
-    position: relative !important;
-    z-index: 2 !important; /* Above the overlay */
-    background-color: #1e1e1e !important;
-    background-image: none !important;
-    opacity: 1 !important;
+/* Minimal test: Just one pseudo-element with the image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://steamuserimages-a.akamaihd.net/ugc/27351263238962049/8C601E863E10C7042AFE2BCE2EE30BA84B12A8DC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')
+              no-repeat center center fixed !important;
+  background-size: cover !important;
+  z-index: -1; /* behind everything */
+  pointer-events: none;
 }
