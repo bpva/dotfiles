@@ -10,7 +10,7 @@ body {
   background-color: inherit !important;
 }
 
-.monaco-workbench .part.editor > .content {
+.split-view-view > .editor-group-container::after {
   background: none !important;
-  background-color: inherit !important;
+  content: none !important;
 }
