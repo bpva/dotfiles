@@ -9,3 +9,8 @@ body {
   opacity: 1 !important;
   background-color: inherit !important;
 }
+
+.split-view-view > .editor-group-container::after {
+  background: none !important;
+  content: none !important;
+}
