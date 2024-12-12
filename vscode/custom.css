@@ -8,3 +8,7 @@ body {
   background: none !important;
   opacity: 1 !important;
 }
+
+.statusbar-item {
+  background-color: red !important;
+}
