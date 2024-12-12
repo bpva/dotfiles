@@ -9,3 +9,7 @@ body {
   opacity: 1 !important;
   background-color: inherit !important;
 }
+
+.monaco-workbench .part.editor > .content {
+  background: none !important;
+}
