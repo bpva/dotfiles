@@ -4,7 +4,7 @@ body {
   opacity: 0.85;
 }
 
-.monaco-editor {
+.monaco-editor, .monaco-editor-background {
   background: none !important;
   opacity: 1 !important;
   background-color: inherit !important;
