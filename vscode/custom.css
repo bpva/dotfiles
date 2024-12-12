@@ -8,7 +8,6 @@ body::before {
   height: 100%;
   background-size: cover;
   opacity: 0.85;
-  z-index: -1;
 }
 
 .monaco-editor, .monaco-editor-background {
