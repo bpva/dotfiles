@@ -1,4 +1,4 @@
-/* Clear backgrounds on html/body */
+/* Remove any default backgrounds from html/body */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
@@ -6,25 +6,25 @@ html, body {
   position: relative !important;
 }
 
-/* The main container where we inject the background image */
+/* Position the main workbench container so we can layer inside it */
 .file-icons-enabled.enable-motion.monaco-workbench {
   position: relative !important;
   z-index: 0 !important;
 }
 
-/* Inject red background image inside the workbench */
+/* Inject a green hue background image inside the workbench */
 .file-icons-enabled.enable-motion.monaco-workbench::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://via.placeholder.com/1920x1080/FF0000/FFFFFF?text=RED') 
-              no-repeat center center fixed !important;
+  background: url('https://via.placeholder.com/1920x1080/00FF00/FFFFFF?text=GreenHue')
+    no-repeat center center fixed !important;
   background-size: cover !important;
   pointer-events: none;
   z-index: 0; /* Base layer inside the workbench */
 }
 
-/* Make intermediate containers transparent */
+/* Make all intermediate containers transparent to let the green hue show through */
 .monaco-grid-view,
 .monaco-grid-branch-node,
 .monaco-split-view2,
@@ -37,14 +37,14 @@ html, body {
     z-index: auto !important;
 }
 
-/* Place the editor above the background */
+/* Keep the editor fully opaque and above the green hue */
 .monaco-editor,
 .monaco-editor-background,
 .editor-instance,
 .monaco-scrollable-element {
-    background-color: #1e1e1e !important;
+    background-color: #1e1e1e !important; /* or another editor theme color */
     background-image: none !important;
     opacity: 1 !important;
     position: relative !important;
-    z-index: 1 !important; /* Above the red background (z=0) */
+    z-index: 1 !important; /* Above the green background (z=0) */
 }
